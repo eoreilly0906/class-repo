@@ -20,6 +20,7 @@ header {
 
 nav {
   display: flex;
+  justify-content: flex-end;
   background-color: #d8a47f;
 }
 
@@ -50,6 +51,7 @@ footer {
 
 .product-slideshow {
   display: flex;
+  align-items: center;
 }
 
 .product-image {

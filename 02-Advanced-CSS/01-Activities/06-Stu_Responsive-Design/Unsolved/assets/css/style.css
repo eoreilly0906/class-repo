@@ -17,6 +17,7 @@ header {
 /* 
 What happens when we set the display property to flex? 
 TODO: Write your answer here 
+Gives the section the ability to change depending on the screen size
 */
 nav {
   display: flex;
@@ -33,6 +34,7 @@ nav a {
 /* 
 What is the flex-wrap property? 
 TODO: Write your answer here 
+The contents in HTML begins to wrap into the each other 
 */
 main {
   display: flex;
@@ -56,7 +58,7 @@ footer {
 
 /* 
 What does the justify-content property do? 
-TODO: Write your answer here 
+TODO: Alings the contents in a direction in this case the center
 */
 .products {
   flex: 4;
@@ -70,7 +72,7 @@ TODO: Write your answer here
 /* 
 What is the flex property a shorthand property for?
 What is it doing here? 
-TODO: Write your answer here 
+TODO: descrips the properties of flex
 */
 .card {
   border-style: solid;
@@ -95,7 +97,7 @@ TODO: Write your answer here
 /* 
 What does the flex-direction property define?
 What is it doing here? 
-TODO: Write your answer here 
+TODO: Tells how to align the contents on the page
 */
 @media screen and (max-width: 768px) {
   main,
@@ -103,3 +105,6 @@ TODO: Write your answer here
     flex-direction: column;
   }
 }
+/*
+fjfjfjfjfjf
+*/
