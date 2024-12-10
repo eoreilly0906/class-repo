@@ -9,6 +9,8 @@ body {
 
 main {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction:row-reverse;
   margin-top: 2%;
 }
 
@@ -21,7 +23,7 @@ main {
 }
 
 .card {
-  flex: 1 0 0;
+  flex: 1 0 400px;
   padding: 10px;
   text-align: center;
   border-style: solid;
