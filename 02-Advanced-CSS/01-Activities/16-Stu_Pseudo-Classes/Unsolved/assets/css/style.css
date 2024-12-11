@@ -91,7 +91,27 @@ footer {
   background-color: #13293d;
   color: #fff;
 }
-.resourses .links
+.resources .links {
+  display: none;
+  padding: 1% 0;
+}
+
+.resources:hover .links {
+  display: block;
+}
+
+.resources h3 {
+  font-size: 150%;
+}
+
+.links a {
+  color: #772014;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
 /* TODO: Add styles that will hide the resource links by default */
 
 
