@@ -1,3 +1,8 @@
+:root {
+  --color: #13293d;
+  --boarder-radius: 50px;
+}
+
 body {
   font-size: 16px;
   display: flex;
@@ -29,7 +34,7 @@ nav {
 }
 
 nav a {
-  color: #13293d;
+  color: var(--color);
   padding: 14px 20px;
   text-decoration: none;
   text-align: center;
@@ -66,7 +71,7 @@ footer {
 .card {
   border-style: solid;
   border-width: 1px;
-  border-radius: 50px;
+  border-radius:var(--boarder-radius);
   padding: 10px;
   flex: 0 0 300px;
   transform: rotate(8deg);
@@ -75,7 +80,7 @@ footer {
 }
 
 .card > header {
-  border-radius: 50px 50px 0px 0px;
+  border-radius: var(--boarder-radius);
   padding: 20px;
 }
 
