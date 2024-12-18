@@ -63,7 +63,7 @@ nav a {
   text-decoration: none;
   padding: 5px 10px;
   color: var(--secondary);
-  margin-right: 10px;
+  margin-right: 50px;
   background-image: linear-gradient(270deg, var(--secondary) 0%, var(--secondary) 100%);
   background-repeat: no-repeat;
   background-size: 100% 0.2em;
@@ -174,7 +174,7 @@ main {
 
 /* feature first portfolio item */
 .flex-item:first-child {
-    min-height: 400px;
+    min-height: 768px;
     flex-basis: 100%;
 }
 
@@ -221,60 +221,38 @@ main {
 
 /* portfolio project images */
 /* TODO: Add portfolio project images here using background images*/
-.run-buddy {
-  
+.run-buddy { 
+    background-image: url('./HTML.png');
+    
 }
 
 .led-wall {
-  
+  background-image: url('./coffee.png');
+
 }
 
 .react-calc {
-  
+  background-image: url('./flash.png');
+
 }
 
 .pastel-puzzles {
-  
+  background-image: url('./coffee.png');
+
 }
 
 .surf-report {
-  
+  background-image: url('./coffee.png');
+
 }
 
-/* media queries */
-
-/* media queries for a max-width of 980px */
-@media screen and (max-width: 980px) {
-  header {
-    padding: 0 0 10px 0;
-    justify-content: center;
-    text-align: center;
+@media screen and (max-width: 768px), screen and (max-height: 768px) {
+  .flex-container {
+    flex-direction: column;
   }
-
-  header h1 {
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
-    font-size: 10vw;
-  }
-
-  header nav {
-    justify-content: center;
-  }
-
-  .page-section > h2,
-  .page-section > div {
-    flex: 0 0 100%;
-  }
-
-  .page-section > h2 {
-    border-right: none;
-    border-bottom: 4px solid var(--primary);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    text-align: left;
-    font-size: 7vw;
+  .flex-item:first-child {
+    min-height: 150px;
+    max-height: 150px;
+    flex-basis: calc(50% - 1em);
   }
 }
-
-/* TODO: add media query for a max-width of 768px */
