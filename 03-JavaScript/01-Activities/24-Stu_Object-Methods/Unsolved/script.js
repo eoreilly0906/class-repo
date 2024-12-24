@@ -10,20 +10,22 @@ const shelter = {
 
 // TODO: Debug the code below
 const dogMessage = function () {
-   console.log(`Congrats! ${chosenPet.Lulu}, a great dog, is available for adoption!`);
-   apptMessage();
+   console.log(`Congrats! ${chosenPet}, a great cat, is available for adoption!`);
+   shelter.apptMessage();
 };
 
 const catMessage = function () {
   console.log(`Congrats! ${chosenPet}, an awesome cat, is available for adoption!`);
-  shelter.apptMessage;
+  shelter.apptMessage();
 };
 
-if (dogs.includes(chosenPet)) {
+
+
+if (shelter.dogs.includes(chosenPet)) {
   dogMessage();
-} else if (cats.includes(chosenPet)) {
+} else if (shelter.cats.includes(chosenPet)) {
   catMessage();
 } else {
   console.log('It looks like the pet is not available.');
-  console.log(`Check out our featured dog, ${shelter[0]}. or our featured cat, ${cat.shelter[0]}!`);
+  console.log(`Check out our featured dog, ${shelter[0]}. or our featured cat, ${shelter.cat[0]}!`);
 };
