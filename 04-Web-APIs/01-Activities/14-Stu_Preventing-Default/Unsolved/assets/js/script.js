@@ -3,6 +3,7 @@ const totalEl = document.querySelector('#total');
 const submitEl = document.querySelector('#submit');
 
 function calculateTip(total, tipPercentage) {
+  
   const roundedResult = (total * tipPercentage).toFixed(2);
   return roundedResult;
 }
@@ -12,6 +13,7 @@ function calculateTotal(total, tipAmount) {
 }
 
 function addTip(event) {
+  event.preventDefault();
   const tipPercentage = tipEl.value * 0.01;
   const total = totalEl.value;
   const tipAmount = calculateTip(total, tipPercentage);

@@ -2,19 +2,76 @@
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
-const collectEmployees = function () {
-  // TODO: Get user input to create and return an array of employee objects
+const collectEmployees = function() { 
+  const employees = [];
+while (true) {
+  let firstName = prompt("Enter first name:");
+  let lastName = prompt("Enter last name:");
+  let salaryInput = prompt("Enter salary:");
+
+  
+  let salary = parseFloat(salaryInput);
+
+  
+  if (isNaN(salary)) {
+    salary = 0; 
+  }
+  
+  let employee = {
+    firstName: firstName,
+    lastName: lastName,
+    salary: salary,
+  };
+
+  employees.push(employee);
+
+  let addMore = confirm("Do you want to add another employee?");
+  if (!addMore) {
+   break;
+  }
+}
+return employees; 
 };
+
+
+ // TODO: Get user input to create and return an array of employee objects
+
 
 // Display the average salary
-const displayAverageSalary = function (employeesArray) {
+const displayAverageSalary = function (employees) {
+  // console.log('employees:', employees)
   // TODO: Calculate and display the average salary
+  let totalSalary = 0;
+  for (let i = 0; i < employees.length; i++) {
+    totalSalary += parseFloat(employees[i].salary);
+  }
+  const averageSalary = totalSalary / employees.length;
+  console.log(`The average employee salary between our ${employees.length} employee(s) is $${averageSalary.toFixed(2)}`);
+  return averageSalary;
 };
 
+
+// TODO: Calculate and display the average salary
 // Select a random employee
-const getRandomEmployee = function (employeesArray) {
+const getRandomEmployee = function (employees) {
   // TODO: Select and display a random employee
+  const randomIndex = Math.floor(Math.random() * employees.length);
+  const randomEmployee = {
+    firstName: employees[randomIndex].firstName, 
+    lastName: employees[randomIndex].lastName,
+  };
+console.log(`Congratulations to ${randomEmployee.firstName} ${randomEmployee.lastName}, our random drawing winner!`);
+
+return randomEmployee;  
 };
+
+
+// Select a random employee
+
+
+  // TODO: Select and display a random employee
+
+
 
 /*
   ====================
