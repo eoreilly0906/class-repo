@@ -63,15 +63,15 @@ const netflixQueue = {
     'Eternal Sunshine of the Spotless Mind',
     'Fight Club',
   ],
-  watchMovie: () => {
+  watchMovie() {
     this.queue.pop();
     return 'Watched a movie!';
   },
-  addMovie: (movie) => {
+  addMovie(movie) {
     this.queue.unshift(movie);
     return 'Adding a movie!';
   },
-  printQueue: () => {
+  printQueue() {
     let list = '';
     for (let i = this.queue.length - 1; i >= 0; i--) {
       const currentMovie = this.queue[i];
