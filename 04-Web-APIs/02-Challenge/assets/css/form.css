@@ -11,7 +11,7 @@ aside {
     var(--circle-color), 
     var(--dark-accent)
   );
-  clip-path: circle(20rem at center);
+  clip-path: square(20rem at center);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@ section {
 
 aside > h2 {
   font-size: 4rem;
-  color: white;
+  color: rgb(167, 84, 84);
   text-shadow: 1px 1px 1px var(--dark-accent);
 }
 
