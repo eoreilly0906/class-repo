@@ -9,6 +9,6 @@ fs.writeFile('log.txt', data, (err) => {
 
 // ! Uncomment the below and comment out the `fs.writeFile()` code above
 // We can use the `fs.appendFile()` method to add to an existing file OR create a new `log.txt` file if one does not exist.
-// fs.appendFile('log.txt', `${data}\n`, (err) =>
-//   err ? console.error(err) : console.log('Commit logged!')
-// );
+fs.appendFile('log.txt', `${data}\n`, (err) =>
+  err ? console.error(err) : console.log('Commit logged!')
+);
