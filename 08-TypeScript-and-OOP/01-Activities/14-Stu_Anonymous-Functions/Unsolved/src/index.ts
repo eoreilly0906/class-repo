@@ -1,7 +1,7 @@
 const studentList = ['Matt', 'Amy', 'Shane', 'Josh', 'Pria'];
 
-const checkStudentRoster = (arr: string): void => {
-  arr.forEach((student) => {
+const checkStudentRoster = (arr: string[]): void => {
+  arr.forEach((student: string) => {
     console.log(`${student} is present!`);
   });
 };
@@ -10,3 +10,5 @@ const checkStudentRoster = (arr: string): void => {
 studentList.forEach((student) => {
   console.log(`${student} is here!`);
 });
+
+checkStudentRoster(studentList);

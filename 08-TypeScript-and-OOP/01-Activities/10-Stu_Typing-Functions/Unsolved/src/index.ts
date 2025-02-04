@@ -16,7 +16,7 @@ const sum: number = addition(42, 137);
 console.log(sum);
 
 // TODO: Add the correct type for the following variable:
-const optionsAvailable = [
+const optionsAvailable: string[] = [
   'Pasta',
   'Ramen',
   'Pizza',
@@ -28,16 +28,16 @@ const optionsAvailable = [
 ];
 
 // TODO: Add the correct type for the parameter and return value in the following function:
-const mealPlanner = (mealOptions) => {
+const mealPlanner = (mealOptions: string[]): string => {
   // TODO: Add the correct type for the following variable:
-  const randomChoice =
+  const randomChoice: string =
     mealOptions[Math.floor(Math.random() * mealOptions.length)];
 
   return randomChoice;
 };
 
 // TODO: Add the correct type for the following variable:
-const dinnerTonight = mealPlanner(optionsAvailable);
+const dinnerTonight: string = mealPlanner(optionsAvailable);
 
 console.log(dinnerTonight);
 
@@ -48,7 +48,7 @@ const submitUser = (
   password: string,
   isAdmin: boolean,
   age: number
-) => {
+): string => {
   const user = {
     username,
     email,
@@ -58,7 +58,6 @@ const submitUser = (
   };
 
   console.log(user);
-
   return `Thanks for signing up ${username}, we'll contact you soon!`;
 };
 

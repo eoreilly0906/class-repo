@@ -1,8 +1,19 @@
 // TODO: Create an interface called Employee that describes the following objects. Think about what should be optional and what should be required.
 // TODO: Update the objects to use the Employee interface.
 
+interface Employee {
+  firstName: string;
+  lastName: string;
+  role: string;
+  salary: number;
+  reportsTo: string;
+  bonus?: number;
+  reports?: Employee[];
+  review?: (employee: Employee) => string;
+}
+
 // Object 1:
-const employee1 = {
+const employee1: Employee = {
   firstName: 'Jimmy',
   lastName: 'Yang',
   role: 'Software Engineer',
@@ -11,7 +22,7 @@ const employee1 = {
 };
 
 // Object 2:
-const employee2 = {
+const employee2: Employee = {
   firstName: 'Ramon',
   lastName: 'Garcia',
   role: 'Senior Software Engineer',
@@ -21,7 +32,7 @@ const employee2 = {
 };
 
 // Object 3:
-const employee3 = {
+const employee3: Employee = {
   firstName: 'Sarah',
   lastName: 'Smith',
   role: 'Director of Engineering',
@@ -30,7 +41,7 @@ const employee3 = {
   bonus: 20000,
   reports: [employee1, employee2],
   // TODO: update the review method to use the Employee interface
-  review: (employee: any) => {
+  review: (employee: Employee) => {
     if (Math.random() > 0.5) {
       return `${employee.firstName} ${employee.lastName} has been Promoted!`;
     } else {
