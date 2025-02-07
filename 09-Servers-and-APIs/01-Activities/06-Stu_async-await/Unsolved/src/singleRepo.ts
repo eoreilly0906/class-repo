@@ -23,26 +23,25 @@ const getRepoName = () => {
   }
 };
 
-const getRepoIssues = (repo: string) => {
+const getRepoIssues = async (repo: string) => {
   const apiUrl = `https://api.github.com/repos/${repo}/issues?direction=asc`;
 
-  fetch(apiUrl).then((response) => {
-    if (response.ok) {
-      response.json().then((data) => {
-        displayIssues(data);
+  const response = await fetch(apiUrl);
+  if (response.ok) {
+    const data = await response.json();
+    displayIssues(data);
 
         // Since GitHub only returns 30 results at a time, we check to see if there's more than 30 by looking for a next page URL in the response headers.
         if (response.headers.get('Link')) {
           displayWarning(repo);
-        }
-      });
-    } else {
-      document.location.replace('./index.html');
     }
-  });
-};
+  } else {
+    document.location.replace('./index.html');
+  }
+  };
 
-const displayIssues = (issues: any[]) => {
+
+const displayIssues = async (issues: any[]) => {
   // This will check for strict equality. Using `!issues.length` works, but only because JavaScript considers `0` to be `falsy`.
   if (issues.length === 0) {
     issueContainerEl.textContent = 'This repo has no open issues!';
@@ -50,11 +49,11 @@ const displayIssues = (issues: any[]) => {
   }
 
   for (const issueObj of issues) {
-    createIssueCard(issueObj);
+    await createIssueCard(issueObj);
   }
 };
 
-const createIssueCard = (issue: any) => {
+const createIssueCard = async (issue: any) => {
   const issueEl = document.createElement('a');
   issueEl.classList.add(
     'list-item',

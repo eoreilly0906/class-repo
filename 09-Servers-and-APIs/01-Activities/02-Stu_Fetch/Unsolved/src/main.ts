@@ -8,7 +8,17 @@ const REQUEST_URL = 'https://api.github.com/users?per_page=5';
 
 const getUsers = () => {
   // TODO: Add a fetch call to the GitHub API
+  fetch(REQUEST_URL)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      data.forEach((user: any) => {
+        const userButton = createUserButton(user.login, user.html_url);
+        usersContainer.appendChild(userButton);
+      });
+    });
   // TODO: Then parse the JSON response
+
   // TODO: Then iterate over the data and generate your HTML
 };
 

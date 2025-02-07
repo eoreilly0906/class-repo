@@ -28,12 +28,29 @@ class UserAPI {
     return response;
   }
 
-  async updateUser() {
+  async updateUser(user: User) {
     // TODO: Implement this method
+    const response = await fetch(`${this.REQUEST_URL}/${user.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    });
+
+    return response;
   }
 
-  async deleteUser() {
-    // TODO: Implement this method
+  async deleteUser(id: number) {
+    const response = await fetch(`${this.REQUEST_URL}/${id}`, {
+      method: 'DELETE',
+    });
+
+    return response;
+  }
+
+  getUser(id: number): Promise<Response> {
+    return fetch(`${this.REQUEST_URL}/${id}`);
   }
 }
 const userAPI = new UserAPI();
