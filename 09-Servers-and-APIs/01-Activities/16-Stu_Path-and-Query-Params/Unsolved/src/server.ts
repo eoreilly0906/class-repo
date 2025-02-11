@@ -12,7 +12,7 @@ const termData: Term[] = JSON.parse(readFileSync('src/terms.json', 'utf8'));
 
 
 const app = express();
-const PORT = 3001;
+const PORT = 3003;
 
 // Call a helper function to sort the data into a new array so we don't mutate the original data
 const sortHelper = (type: 'asc' | 'dsc') => {
@@ -22,9 +22,11 @@ const sortHelper = (type: 'asc' | 'dsc') => {
 };
 
 // TODO: Add a comment describing the functionality of this route
+// This route will return the terms in the database
 
 app.get('/api/terms/', (req: Request, res: Response) => {
   // TODO: Add a comment describing the req.query object
+  // The req.query object is an object that contains the query parameters of the request
 
   const hasQuery = Object.keys(req.query).length > 0;
 
@@ -41,9 +43,11 @@ app.get('/api/terms/', (req: Request, res: Response) => {
 });
 
 // TODO: Add a comment describing what this route will return
+// It will return the term that matches the term in the request
 
 app.get('/api/term/:term', (req: Request, res: Response) => {
   // TODO: Add a comment describing the content of req.params in this instance
+  // The req.params is an object that contains the parameters of the request
 
   const requestedTerm = req.params.term.toLowerCase();
 
