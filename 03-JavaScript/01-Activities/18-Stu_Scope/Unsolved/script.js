@@ -1,6 +1,4 @@
 // TODO: Declare variable 'shout' with the value 'Shout' so it's available to `justShout` and `shoutItAllOut` functions
-const shout = 'Shout'
-
 function justShout() {
   console.log(`${shout}, ${shout}`);
   return;
@@ -22,7 +20,6 @@ function sayLions() {
 }
 
 function sayTigers() {
-  const animal = 'Tigers'
   console.log(`and ${animal} and `);
   return;
 }
@@ -31,6 +28,7 @@ function sayTigers() {
 const bears = 'Bears';
 
 function sayBears() {
+  const bears = 'Pandas';
   console.log(`${bears}! OH  MY!`);
   return;
 }
@@ -40,9 +38,9 @@ sayTigers();
 sayBears();
 
 // TODO: The variable 'sing' should be declared once in the local scope.
+const sing = 'Sing';
 
 function singAlong() {
-  const sing = 'Sing';
   console.log(`${sing},`);
   const singASong = function () {
     console.log(`${sing} a Song.`);
