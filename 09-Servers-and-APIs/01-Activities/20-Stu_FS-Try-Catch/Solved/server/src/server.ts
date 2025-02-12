@@ -25,19 +25,8 @@ app.get('/api/contacts', async (_req: Request, res: Response) => {
     const parsedContacts: Contact[] = JSON.parse(contacts);
     return res.status(200).json(parsedContacts);
   } catch (error) {
-    // Check if it's a file not found error
-    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
-      console.error('Contacts file not found:', error);
-      // Create an empty contacts file
-      await fs.writeFile('src/db/contacts.json', '[]', 'utf8');
-      return res.status(200).json([]);
-    }
-    
     console.error('Error getting contacts:', error);
-    return res.status(500).json({ 
-      message: 'Error getting contacts', 
-      details: error instanceof Error ? error.message : 'Unknown error' 
-    });
+    return res.status(500).json({ message: 'Error getting contacts', error });
   }
 });
 
@@ -66,30 +55,37 @@ app.get('/api/contacts/:id', async (req: Request, res: Response) => {
 
 // POST route to add a new contact to the contactData array
 app.post('/api/contacts', async (req: Request, res: Response) => {
+  const { contactName, phone, email } = req.body;
+
   try {
-    const newContact = req.body;
-    newContact.id = uuidv4();
+    const newContact: Contact = {
+      id: uuidv4(),
+      contactName,
+      phone,
+      email,
+    };
+
+    // Validate the new contact
+    if (!newContact.contactName || !newContact.phone || !newContact.email) {
+      return res
+        .status(400)
+        .json('Please include a name, phone number, and email');
+    }
+
+    // Read contacts from the file
     const contacts: string = await fs.readFile('src/db/contacts.json', 'utf8');
-
     const parsedContacts: Contact[] = JSON.parse(contacts);
-
     parsedContacts.push(newContact);
 
-    await fs.writeFile('src/db/contacts.json', JSON.stringify(parsedContacts, null, 2));
+    await fs.writeFile(
+      'src/db/contacts.json',
+      JSON.stringify(parsedContacts, null, 2)
+    );
     return res.status(201).json(newContact);
-
   } catch (error) {
     console.error('Error adding contact:', error);
-
     return res.status(500).json({ message: 'Error adding contact', error });
-    
   }
-  // TODO: Add a try/catch block to handle errors
-  // TODO: Add code to read the contacts from the file add the new contact to the array, and write the updated array back to the file
-  // TODO: use uuidv4() to generate a unique ID for the new contact
-  // TODO: Validate the request body to ensure it has the required fields if not return a 400 status code
-  // TODO: Return a 201 status code and the new contact if the contact was successfully added
-  // TODO: Return a 500 status code and an error message if the contact was not added but the request was valid
 });
 
 // DELETE route to delete a contact based on the ID provided

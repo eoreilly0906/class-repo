@@ -55,7 +55,7 @@ app.post('/api/guests', (req: Request, res: Response) => {
 
 // PUT route to update a guest based on the ID provided
 app.put('/api/guests/:id', (req: Request, res: Response) => {
-  const requestedId = Number.parseInt(req.query.id);
+  const requestedId = Number.parseInt(req.params.id);
 
   // Update the guest if it exists
   const updatedGuestIndex = guestData.findIndex((guest) => guest.id === requestedId);
@@ -74,7 +74,7 @@ app.put('/api/guests/:id', (req: Request, res: Response) => {
 
 // DELETE route to delete a guest based on the ID provided
 app.delete('/api/guests/:id', (req: Request, res: Response) => {
-  const requestedId = Number.parseInt(req.query.id);
+  const requestedId = Number.parseInt(req.params.id);
 
   const guestIndex = guestData.findIndex((guest) => guest.id === requestedId);
 
